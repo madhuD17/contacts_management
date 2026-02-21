@@ -27,6 +27,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['base_url'] = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/';
 $config['project_folder_name']	= 'contacts_management/';
 $config['base_url'] .= $config['project_folder_name'];
+// print_r($config['base_url']);
+// die();
 
 /*
 |--------------------------------------------------------------------------
@@ -533,6 +535,10 @@ $config['rewrite_short_tags'] = FALSE;
 | Comma-separated:	'10.0.1.200,192.168.5.0/24'
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
+$config['modules_locations'] = array(
+    APPPATH.'modules/' => '../modules/',
+);
+
 $config['proxy_ips'] = '';
 // Path for css files
 $config['css_path'] = $config["base_url"]."assets/css/";

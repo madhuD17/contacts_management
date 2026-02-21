@@ -18,7 +18,7 @@
             <i class="bi bi-search"></i>
         </span>
     </div>
-    <a href="<?= site_url('contacts/create') ?>" class="btn btn-primary">
+    <a href="<?= site_url('contact_management/add') ?>" class="btn btn-primary">
         <i class="fa fa-plus"></i> Add Contact
     </a>
 </div>
@@ -35,7 +35,7 @@
             headerHozAlign: "center",
             vertAlign: "middle"
         },
-        ajaxURL:"<?= base_url('contacts/index_data') ?>",
+        ajaxURL:"<?= base_url('contact_management/index_data') ?>",
         ajaxConfig:"POST",
         ajaxParams:function()
         {
@@ -97,7 +97,7 @@
                 let id = cell.getValue();
                 let rowData = cell.getRow().getData();
                 let status = rowData.status;
-                url = "<?= site_url('contacts/edit/') ?>"+ id;
+                url = "<?= site_url('contact_management/edit/') ?>"+ id;
                 string = '<div class="dropdown action_menu">';
                 string += '<a class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu">';
                 string += '<i class="bi bi-three-dots-vertical"></i></a>';
@@ -202,7 +202,7 @@
                 if(result==true)
                 {
                     $.ajax({
-                        url: "<?= site_url('contacts/delete'); ?>",
+                        url: "<?= site_url('contact_management/delete'); ?>",
                         type: "POST",
                         data: { id: id },
                         dataType: "json",

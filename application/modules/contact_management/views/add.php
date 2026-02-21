@@ -83,7 +83,7 @@
     <?php endif; ?>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="btn btn-primary me-md-2" type="submit">Save</button>
-        <a href="<?= site_url('contacts') ?>" class="btn btn-primary" type="button">Cancel</a>
+        <a href="<?= site_url('contact_management') ?>" class="btn btn-primary" type="button">Cancel</a>
     </div>
 </form>
 <?php $this->load->view('layout/footer'); ?>
@@ -167,7 +167,7 @@
             submitHandler: function(form) {
                 let formData = new FormData(form);
                 $.ajax({
-                    url: "<?= site_url('contacts/save'); ?>",
+                    url: "<?= site_url('contact_management/save'); ?>",
                     type: "POST",
                     data: formData,
                     processData: false,
@@ -178,7 +178,7 @@
                             toastr.success(response.message);
                             form.reset();
                             setTimeout(function () {
-                                window.location.href = "<?= base_url('contacts') ?>";
+                                window.location.href = "<?= base_url('contact_management') ?>";
                             }, 3000);
                         } else {
                             toastr.error(response.message);

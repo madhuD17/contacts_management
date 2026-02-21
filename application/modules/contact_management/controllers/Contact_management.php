@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Contacts extends CI_Controller {
+class Contact_management extends CI_Controller {
 
 	public function __construct()
     {
@@ -13,7 +13,7 @@ class Contacts extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('contacts/index');
+        $this->load->view('list');
     }
 
     public function index_data()
@@ -37,11 +37,11 @@ class Contacts extends CI_Controller {
         ]);
     }
 
-    public function create()
+    public function add()
     {
         $data['action'] = 'add';
         $data['custom_fields'] = $this->common_model->get_all('custom_fields');
-        $this->load->view('contacts/add', $data);
+        $this->load->view('add', $data);
     }
 
     public function edit($id=null)
@@ -49,7 +49,7 @@ class Contacts extends CI_Controller {
         $data['action'] = 'edit';
         $data['contact'] = $this->common_model->get_by_id($this->table, $id);
         $data['custom_fields'] = $this->contact_model->get_custom_field_values($id);
-        $this->load->view('contacts/add', $data);
+        $this->load->view('add', $data);
     }
 
     public function save()
